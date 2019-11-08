@@ -1,0 +1,8 @@
+.DS_Store
+*.pyc
+__pychache__/
+mychecks.py
+old_jupyter.txt
+.pytest_cache/
+simple_checks.py
+check_btest.py
