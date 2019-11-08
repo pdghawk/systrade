@@ -29,7 +29,9 @@ error rate significance level.
 Monte Carlo methods for generating stock pathways is also provided. This could
 also form this basis for backtesting on 'alternate histories'. Ideas from the
 following book:
+
 C++ Designs Patterns and Derivatives Pricing, M.S. Joshi (Cambridge University Press)
+
 were used in developing the sytrade/monte subpackage.
 
 An example use case can be found in notebooks/example.ipynb
