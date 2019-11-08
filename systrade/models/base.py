@@ -50,6 +50,8 @@ This module is in no way endorsed by scikit-learn.
 import inspect
 import copy
 from collections import defaultdict
+from itertools import product
+
 from abc import ABC,abstractmethod
 
 class BaseParameterizedObject:
