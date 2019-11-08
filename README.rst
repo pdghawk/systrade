@@ -32,6 +32,6 @@ following book:
 
 C++ Designs Patterns and Derivatives Pricing, M.S. Joshi (Cambridge University Press)
 
-were used in developing the sytrade/monte subpackage.
+were used in developing the systrade/monte subpackage.
 
 An example use case can be found in notebooks/example.ipynb
