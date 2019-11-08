@@ -34,9 +34,10 @@
 
 The implementation of base indicators, signals, and strategies all inheirit from
 a base paramterized object. Parameters of models can be easily
-adjusted for backtesting a model with many variations of its parameters. As such
-, the BSD license of that software applies to this code, as written in this
-module's source code. Further, we here cite scikit-learn's design:
+adjusted for backtesting a model with many variations of its parameters. Ideas
+and code from scikit-learn was used in developing the code in this module, the
+BSD license and copyright of the sci-kit learn software applies to this code,
+as written in this module's source code. Further, we here cite scikit-learn's design:
 
 API design for machine learning software: experiences from the scikit-learn project, Buitinck et al., 2013.
 which can be found on the arXiv: https://arxiv.org/abs/1309.0238
