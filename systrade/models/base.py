@@ -41,7 +41,8 @@ module's source code. Further, we here cite scikit-learn's design:
 API design for machine learning software: experiences from the scikit-learn project, Buitinck et al., 2013.
 which can be found on the arXiv: https://arxiv.org/abs/1309.0238
 
-BaseParameterizedObject is a modified version of sklearn's BaseEstimator.
+BaseParameterizedObject is a modified version of scikit-learn's sklearn.base.BaseEstimator.
+ParamGrid is a modified verison of scikit-learns's sklearn.model_selection.ParameterGrid.
 
 This module is in no way endorsed by scikit-learn.
 """
@@ -367,3 +368,51 @@ class BaseStrategy(BaseParameterizedObject,ABC):
 
     def __repr__(self):
         return "Strategy with params : " + str(self.get_params())
+
+
+class ParamGrid:
+    """ class to store a grid of parameters """
+    def __init__(self,param_dict):
+        """ initialize
+
+        Args:
+            - param_dict: a dictionary of parameters, keys as their names, with
+                          values being lists of values the parameter should take
+        """
+        if isinstance(param_dict,dict):
+            self.param_dict = param_dict
+        else:
+            raise TypeError("param_dict should be a dictionary")
+
+    @classmethod
+    def check_and_create(cls,param_dict,strategy):
+        """ check if pd is a dictionary with allowed parameters """
+        for key,value in param_dict.items():
+            if not isinstance(value,list):
+                raise TypeError("param_dict", key, " should have a list as"
+                                 " value in the dictionary")
+        valid_params = strategy.get_params()
+        for p in param_dict.keys():
+            if p not in valid_params:
+                raise ValueError(p," is not a valid parameter of strategy to be set")
+        return cls(param_dict)
+
+    def __iter__(self):
+        items = sorted(self.param_dict.items())
+        if not items:
+            yield {} # n.b truth value is False
+        else:
+            keys, values = zip(*items)
+            # iterate over all possible combinations of the values
+            # but n.b iterate as a generator with yield statement
+            for v in product(*values):
+                params = dict(zip(keys, v))
+                yield params
+
+    def __len__(self):
+        """ total number of paramter sets to try """
+        keys, vals = zip(*self.param_dict.items())
+        length = 1
+        for v in vals:
+            length *= len(v)
+        return length
