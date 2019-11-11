@@ -1,13 +1,13 @@
 systrade - A simple package for systematic trading and testing
 ================================================================
 
-systrade is a personal project in developing a package for the development of
+systrade is a personal project in developing a package for the design of
 trading strategies and backtesting them. The main aims of the project at this
-stage in its development being for me to gain understanding of both the topic,
+stage in its development is for me to gain a better understanding of the topic,
 and furthering my software development skills. My career as a physicist often
 focussed more on the mathematical elements of the problem at hand with quite
 procedural code - developing better skills in developing design patterns, writing
-unit tests etc was a key element of this project with many moving parts. This
+unit tests etc, was a key element of this project with many moving parts. This
 project is in the early stages, so far focussing on building software that will
 allow for easy extension to more complicated strategies, and backtesting systems.
 
